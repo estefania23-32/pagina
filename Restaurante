@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estefanía Andrea - Portafolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #2d1f1a;
+            color: #f4f0e8;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header con efectos mejorados */
+        header {
+            background: linear-gradient(135deg, #3d2a1f, #4a3426);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        header:hover {
+            box-shadow: 0 6px 30px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: #d4b896;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+            cursor: default;
+        }
+
+        h1:hover {
+            transform: scale(1.05);
+            color: #f0d4a0;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.7);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #a68b5b;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        header:hover .subtitle {
+            color: #c49b70;
+        }
+
+        /* Navigation mejorada */
+        nav {
+            background-color: #4a3426;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        nav:hover {
+            background-color: #5d4037;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #f4f0e8;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        nav a:hover {
+            background-color: #d4b896;
+            color: #2d1f1a;
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(212, 184, 150, 0.3);
+        }
+
+        /* Sections con efectos */
+        section {
+            padding: 4rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #d4b896;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .section-title:hover {
+            transform: scale(1.02);
+            color: #f0d4a0;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #d4b896, #a68b5b);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .section-title:hover::after {
+            width: 120px;
+        }
+
+        /* About Section mejorada */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            background: linear-gradient(135deg, #3d2a1f, #4a3426);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.4s ease;
+        }
+
+        .about-grid:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #8b6f47, #a68b5b);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #2d1f1a;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #a68b5b, #c49b70);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e8dcc6;
+            transition: color 0.3s ease;
+        }
+
+        .about-grid:hover .about-text {
+            color: #f4f0e8;
+        }
+
+        /* Skills Grid mejorada */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #4a3426, #5d4037);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 184, 150, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #5d4037, #6d4c41);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #d4b896;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2);
+            color: #f0d4a0;
+        }
+
+        .skill-card h3 {
+            transition: color 0.3s ease;
+        }
+
+        .skill-card:hover h3 {
+            color: #f0d4a0;
+        }
+
+        /* Projects Table mejorada */
+        .projects-table {
+            background: linear-gradient(135deg, #3d2a1f, #4a3426);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-top: 2rem;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .projects-table:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: linear-gradient(135deg, #5d4037, #6d4c41);
+            color: #f4f0e8;
+            padding: 1.5rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+        }
+
+        th:hover {
+            background: linear-gradient(135deg, #6d4c41, #795548);
+        }
+
+        td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #5d4037;
+            color: #e8dcc6;
+            transition: all 0.3s ease;
+        }
+
+        tr {
+            transition: all 0.3s ease;
+        }
+
+        tr:hover {
+            background-color: #4a3426;
+            transform: scale(1.01);
+        }
+
+        tr:hover td {
+            color: #f4f0e8;
+            padding-left: 2rem;
+        }
+
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .status:hover {
+            transform: scale(1.1);
+        }
+
+        .status.completed {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .status.completed:hover {
+            background-color: #66bb6a;
+            box-shadow: 0 3px 10px rgba(76, 175, 80, 0.4);
+        }
+
+        .status.in-progress {
+            background-color: #ff9800;
+            color: white;
+        }
+
+        .status.in-progress:hover {
+            background-color: #ffb74d;
+            box-shadow: 0 3px 10px rgba(255, 152, 0, 0.4);
+        }
+
+        .status.planned {
+            background-color: #2196f3;
+            color: white;
+        }
+
+        .status.planned:hover {
+            background-color: #64b5f6;
+            box-shadow: 0 3px 10px rgba(33, 150, 243, 0.4);
+        }
+
+        /* Experience Grid mejorada */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .experience-item {
+            background: linear-gradient(135deg, #4a3426, #5d4037);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid #d4b896;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(180deg, #d4b896, #f0d4a0);
+            transition: width 0.3s ease;
+        }
+
+        .experience-item:hover::before {
+            width: 10px;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            background: linear-gradient(135deg, #5d4037, #6d4c41);
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            color: #d4b896;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .experience-item:hover .experience-title {
+            color: #f0d4a0;
+        }
+
+        .experience-company {
+            color: #a68b5b;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .experience-item:hover .experience-company {
+            color: #c49b70;
+        }
+
+        /* Contact Grid mejorada */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #4a3426, #5d4037);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #5d4037, #6d4c41);
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, #3d2a1f, #4a3426);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+        }
+
+        .contact-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #d4b896;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .form-group:hover label {
+            color: #f0d4a0;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #5d4037;
+            border-radius: 8px;
+            background-color: #2d1f1a;
+            color: #f4f0e8;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #d4b896;
+            box-shadow: 0 0 10px rgba(212, 184, 150, 0.3);
+            transform: scale(1.02);
+        }
+
+        input:hover, textarea:hover {
+            border-color: #a68b5b;
+            background-color: #3a2b20;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #d4b896, #a68b5b);
+            color: #2d1f1a;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(212, 184, 150, 0.4);
+            background: linear-gradient(135deg, #f0d4a0, #c49b70);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation for sections mejorada */
+        section {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        section:nth-child(odd) {
+            animation-delay: 0.4s;
+        }
+
+        /* Efecto de brillo sutil */
+        @keyframes subtle-glow {
+            0%, 100% {
+                box-shadow: 0 0 5px rgba(212, 184, 150, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(212, 184, 150, 0.4);
+            }
+        }
+
+        .skill-card:hover,
+        .experience-item:hover,
+        .contact-info:hover,
+        .contact-form:hover {
+            animation: subtle-glow 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Estefanía Andrea</h1>
+            <p class="subtitle">Desarrolladora & Diseñadora Creativa</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">Sobre Mí</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#experience">Experiencia</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-grid">
+                <div class="profile-image">
+                    👩‍💻
+                </div>
+                <div class="about-text">
+                    <p>Soy una profesional apasionada por la tecnología y el diseño, con experiencia en desarrollo web y soluciones creativas. Me especializo en crear experiencias digitales únicas que combinan funcionalidad y estética.</p>
+                    <br>
+                    <p>Mi enfoque se centra en la innovación, la calidad y la atención al detalle. Disfruto trabajando en proyectos desafiantes que me permitan crecer profesionalmente mientras aporto valor real a los usuarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Desarrollo Web</h3>
+                    <p>HTML5, CSS3, JavaScript, React, Node.js</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Diseño UI/UX</h3>
+                    <p>Figma, Adobe Creative Suite, Prototipado</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📱</div>
+                    <h3>Desarrollo Móvil</h3>
+                    <p>React Native, Flutter, Diseño Responsivo</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>Backend</h3>
+                    <p>Python, PHP, MySQL, MongoDB</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Proyectos</h2>
+            <div class="projects-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Proyecto</th>
+                            <th>Descripción</th>
+                            <th>Tecnologías</th>
+                            <th>Estado</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>E-Commerce Platform</strong></td>
+                            <td>Plataforma completa de comercio electrónico con gestión de inventario</td>
+                            <td>React, Node.js, MongoDB</td>
+                            <td><span class="status completed">Completado</span></td>
+                            <td>Dic 2024</td>
+                        </tr>
+                        <tr>
+                            <td><strong>App Móvil Fitness</strong></td>
+                            <td>Aplicación para seguimiento de rutinas y progreso físico</td>
+                            <td>React Native, Firebase</td>
+                            <td><span class="status completed">Completado</span></td>
+                            <td>Nov 2024</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dashboard Analytics</strong></td>
+                            <td>Panel de control para análisis de datos empresariales</td>
+                            <td>Vue.js, Python, PostgreSQL</td>
+                            <td><span class="status in-progress">En Progreso</span></td>
+                            <td>Ene 2025</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Portfolio Interactivo</strong></td>
+                            <td>Sitio web portfolio con animaciones 3D y efectos interactivos</td>
+                            <td>Three.js, GSAP, React</td>
+                            <td><span class="status planned">Planificado</span></td>
+                            <td>Mar 2025</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sistema CRM</strong></td>
+                            <td>Sistema de gestión de relaciones con clientes personalizable</td>
+                            <td>Laravel, Vue.js, MySQL</td>
+                            <td><span class="status in-progress">En Progreso</span></td>
+                            <td>Feb 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Experiencia</h2>
+            <div class="experience-grid">
+                <div class="experience-item">
+                    <h3 class="experience-title">Desarrolladora Full Stack Senior</h3>
+                    <p class="experience-company">Tech Solutions Inc. • 2022 - Presente</p>
+                    <p>Lidero el desarrollo de aplicaciones web complejas, coordinando equipos multidisciplinarios y implementando mejores prácticas de desarrollo. Responsable de la arquitectura técnica y mentoría a desarrolladores junior.</p>
+                </div>
+                <div class="experience-item">
+                    <h3 class="experience-title">Diseñadora UI/UX</h3>
+                    <p class="experience-company">Creative Digital Agency • 2020 - 2022</p>
+                    <p>Diseñé interfaces intuitivas y experiencias de usuario para más de 30 proyectos. Colaboré estrechamente con clientes para transformar ideas en soluciones digitales efectivas y atractivas.</p>
+                </div>
+                <div class="experience-item">
